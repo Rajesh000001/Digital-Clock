@@ -22,17 +22,17 @@ const invalidSec = document.querySelector("#invalid-sec");
     
 
 function set() {
-    let isValid = false;
+    let isValid = true;
     let hint = parseInt(hourInput.value);
     let mint = parseInt(minInput.value);
     let sint = parseInt(secInput.value);
     if(!isNaN(hint) && hint >= 0 && hint < 24) {
-        isValid = true;
         hourCounter = hint;
         hourNum.innerText = hourCounter;
         invalidHour.classList.add("invalid");
     } else {
-        if(minInput.value === "") {
+        isValid = false;
+        if(hourInput.value === "") {
         invalidHour.innerText = "*field cannot be empty";
         invalidHour.classList.remove("invalid");
         } else {
@@ -41,12 +41,12 @@ function set() {
         }
     }
     if(!isNaN(mint) && mint >= 0 && mint < 60) {
-        isValid = true;
         minute = mint;
         minNum.innerText = minute;
         invalidMin.classList.add("invalid");
     } else {
-        if(hourInput.value === "") {
+        isValid = false;
+        if(minInput.value === "") {
         invalidMin.innerText = "*field cannot be empty";
         invalidMin.classList.remove("invalid");
         } else {
@@ -55,12 +55,12 @@ function set() {
         }
     }
     if(!isNaN(sint) && sint >= 0 && sint < 60) {
-        isValid = true;
         second = sint;
         secNum.innerText = second;
         invalidSec.classList.add("invalid");
     } else {
         if(secInput.value === "") {
+        isValid = false;
         invalidSec.innerText = "*field cannot be empty";
         invalidSec.classList.remove("invalid");
         } else {

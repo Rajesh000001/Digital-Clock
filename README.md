@@ -1,19 +1,18 @@
-# 🕒 Digital Clock Timer
+🕒 Digital Clock Timer
+A customizable digital clock timer that lets you input a starting time and watch it increment every second in real-time.
 
-A simple digital clock timer where you can set custom time and see it increment every second.
+🚀 Features:
 
----
+⏱️ Set your own time: Input custom hour, minute, and second.
+🔄 Live timer: Time increases every second starting from your input.
+🔁 24-hour reset: Automatically resets after 23:59:59 to 00:00:00.
+❌ Input validation: Invalid or empty inputs are flagged clearly.
+📱 Responsive layout: Works across various screen sizes.
 
-## 🚀 Features
 
-- Set custom hour, minute, and second.
-- Starts counting up from the set time.
-- Automatically resets after 24 hours.
 
----
+🛠️ Technologies Used:
 
-## 🛠️ Technologies Used
-
-- HTML
-- CSS
-- JavaScript
+🌐 HTML – Structure of the timer and input fields.
+🎨 CSS – Styling for layout, responsiveness, and appearance.
+⚙️ JavaScript – Timer logic, validation, and dynamic updates.

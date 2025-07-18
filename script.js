@@ -11,6 +11,10 @@ const hourInput = document.querySelector("#hour-input");
 const minInput = document.querySelector("#min-input");
 const secInput = document.querySelector("#sec-input");
 const setBtn = document.querySelector("#set-btn");
+const invalidHour = document.querySelector("#invalid-hour");
+const invalidMin = document.querySelector("#invalid-min");
+const invalidSec = document.querySelector("#invalid-sec");
+
 
     let second;
     let minute;
@@ -18,23 +22,57 @@ const setBtn = document.querySelector("#set-btn");
     
 
 function set() {
+    let isValid = false;
     let hint = parseInt(hourInput.value);
     let mint = parseInt(minInput.value);
     let sint = parseInt(secInput.value);
-    if(hint >= 0 && hint < 24) {
+    if(!isNaN(hint) && hint >= 0 && hint < 24) {
+        isValid = true;
         hourCounter = hint;
         hourNum.innerText = hourCounter;
+        invalidHour.classList.add("invalid");
+    } else {
+        if(minInput.value === "") {
+        invalidHour.innerText = "*field cannot be empty";
+        invalidHour.classList.remove("invalid");
+        } else {
+        invalidHour.innerText = "*Hour must be 0-23";
+        invalidHour.classList.remove("invalid");
+        }
     }
-    if(mint >= 0 && mint < 60) {
+    if(!isNaN(mint) && mint >= 0 && mint < 60) {
+        isValid = true;
         minute = mint;
         minNum.innerText = minute;
+        invalidMin.classList.add("invalid");
+    } else {
+        if(hourInput.value === "") {
+        invalidMin.innerText = "*field cannot be empty";
+        invalidMin.classList.remove("invalid");
+        } else {
+        invalidMin.innerText = "*Min must be 0-59";
+        invalidMin.classList.remove("invalid");
+        }
     }
-    if(sint >= 0 && sint < 60) {
+    if(!isNaN(sint) && sint >= 0 && sint < 60) {
+        isValid = true;
         second = sint;
         secNum.innerText = second;
+        invalidSec.classList.add("invalid");
+    } else {
+        if(secInput.value === "") {
+        invalidSec.innerText = "*field cannot be empty";
+        invalidSec.classList.remove("invalid");
+        } else {
+        invalidSec.innerText = "*Sec must be 0-59";
+        invalidSec.classList.remove("invalid");
+        }
     }
     clearInterval(secId);
-    timeCounter();
+    if(isValid){
+        timeCounter();
+    }
+    
 }
 
 let secId;

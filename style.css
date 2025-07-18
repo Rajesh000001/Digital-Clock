@@ -90,6 +90,14 @@ input{
     cursor: pointer;
 }
 
+.invalid {
+    display: none;
+}
+
+#invalid-hour, #invalid-min, #invalid-sec {
+    color:red;
+}
+
 
 
 
